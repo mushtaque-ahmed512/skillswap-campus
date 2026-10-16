@@ -32,12 +32,18 @@ The application provides a campus-oriented interface where students can explore 
 
 ## Project Structure
 SkillSwap-Campus/
+<br>
 ├── index.html
+<br>
 ├── README.md
+<br>
 ├── .gitignore
+<br>
 ├── css/
 │   └── style.css
+<br>
 └── js/
+<br>
     ├── app.js
     ├── auth.js
     ├── skills.js
