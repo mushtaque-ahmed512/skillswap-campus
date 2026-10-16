@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap Campus</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section id="authScreen" class="auth-wrapper">
+    <div class="auth-left">
+        <div class="auth-brand">
+            <div class="logo-box">
+                <i class="bi bi-arrow-left-right"></i>
+            </div>
+            SkillSwap
+        </div>
+        <h1>
+            Learn a skill.<br>
+            Share a skill.
+        </h1>
+        <p>
+            SkillSwap Campus connects students who want to teach
+            and learn skills from each other.
+        </p>
+        <div class="auth-features">
+            <div class="auth-feature">
+                <i class="bi bi-people"></i>
+                Student Community
+            </div>
+            <div class="auth-feature">
+                <i class="bi bi-lightbulb"></i>
+                Skill Exchange
+            </div>
+            <div class="auth-feature">
+                <i class="bi bi-person-check"></i>
+                Personal Profile
+            </div>
+        </div>
+    </div>
+    <div class="auth-right">
+        <div class="auth-card">
+            <div class="auth-brand" style="color:#202124;font-size:22px">
+                <div
+                    class="logo-box"
+                    style="
+                    background:linear-gradient(135deg,#6c5ce7,#8b7cf6);
+                    color:white;
+                    "
+                >
+                    <i class="bi bi-arrow-left-right"></i>
+                </div>
+                SkillSwap Campus
+            </div>
+            <h2 id="authTitle" class="auth-card-title">
+                Welcome back
+            </h2>
+            <p id="authSubtitle" class="auth-subtitle">
+                Login to continue to your campus workspace.
+            </p>
+            <div class="auth-tabs">
+                <button
+                    id="loginTab"
+                    class="auth-tab active"
+                    onclick="switchAuth('login')"
+                >
+                    Login
+                </button>
+                <button
+                    id="registerTab"
+                    class="auth-tab"
+                    onclick="switchAuth('register')"
+                >
+                    Register
+                </button>
+            </div>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label class="form-label">
+                        Email
+                    </label>
+                    <input
+                        id="loginEmail"
+                        type="email"
+                        class="form-control"
+                        placeholder="you@example.com"
+                        required
+                    >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        Password
+                    </label>
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        class="form-control"
+                        placeholder="Enter password"
+                        required
+                    >
+                </div>
+                <button class="auth-button">
+                    Login
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </form>
+            <form id="registerForm" class="hidden">
+                <div class="image-upload">
+                    <img
+                        id="registerAvatarPreview"
+                        class="image-preview"
+                        alt="Profile picture"
+                    >
+                    <div>
+                        <label class="upload-label">
+                            <i class="bi bi-camera"></i>
+                            Choose Profile Picture
+                            <input
+                                id="registerAvatar"
+                                type="file"
+                                accept="image/*"
+                                hidden
+                            >
+                        </label>
+                        <div
+                            style="
+                            font-size:10px;
+                            color:#999;
+                            margin-top:7px;
+                            "
+                        >
+                            Optional · JPG, PNG, WebP
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        Full Name
+                    </label>
+                    <input
+                        id="registerName"
+                        class="form-control"
+                        placeholder="Your full name"
+                        required
+                    >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        Email
+                    </label>
+                    <input
+                        id="registerEmail"
+                        type="email"
+                        class="form-control"
+                        placeholder="you@example.com"
+                        required
+                    >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        Password
+                    </label>
+                    <input
+                        id="registerPassword"
+                        type="password"
+                        class="form-control"
+                        minlength="6"
+                        placeholder="Minimum 6 characters"
+                        required
+                    >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        Confirm Password
+                    </label>
+                    <input
+                        id="registerConfirm"
+                        type="password"
+                        class="form-control"
+                        placeholder="Repeat password"
+                        required
+                    >
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">
+                        University
+                    </label>
+                    <input
+                        id="registerUniversity"
+                        class="form-control"
+                        placeholder="Your university"
+                    >
+                </div>
+                <button class="auth-button">
+                    Create Account
+                    <i class="bi bi-person-plus"></i>
+                </button>
+            </form>
+            <div
+                style="
+                text-align:center;
+                color:#999;
+                font-size:10px;
+                margin-top:18px;
+                "
+            >
+                Register first → then login with your account.
+            </div>
+        </div>
+    </div>
+</section>
+<div id="app">
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-brand">
+            <div class="logo-box">
+                <i class="bi bi-arrow-left-right"></i>
+            </div>
+            SkillSwap
+        </div>
+        <div class="nav-title">
+            Main
+        </div>
+        <div
+            class="nav-link-custom active"
+            data-page="dashboard"
+            onclick="showPage('dashboard')"
+        >
+            <i class="bi bi-grid-1x2-fill"></i>
+            Dashboard
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="explore"
+            onclick="showPage('explore')"
+        >
+            <i class="bi bi-compass"></i>
+            Explore Skills
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="matches"
+            onclick="showPage('matches')"
+        >
+            <i class="bi bi-stars"></i>
+            My Matches
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="sessions"
+            onclick="showPage('sessions')"
+        >
+            <i class="bi bi-calendar3"></i>
+            Sessions
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="messages"
+            onclick="showPage('messages')"
+        >
+            <i class="bi bi-chat-dots"></i>
+            Messages
+        </div>
+        <div class="nav-title">
+            Community
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="leaderboard"
+            onclick="showPage('leaderboard')"
+        >
+            <i class="bi bi-trophy"></i>
+            Leaderboard
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="achievements"
+            onclick="showPage('achievements')"
+        >
+            <i class="bi bi-award"></i>
+            Achievements
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="favorites"
+            onclick="showPage('favorites')"
+        >
+            <i class="bi bi-heart"></i>
+            Favorites
+        </div>
+        <div class="nav-title">
+            Account
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="profile"
+            onclick="showPage('profile')"
+        >
+            <i class="bi bi-person"></i>
+            Profile
+        </div>
+        <div
+            class="nav-link-custom"
+            data-page="settings"
+            onclick="showPage('settings')"
+        >
+            <i class="bi bi-gear"></i>
+            Settings
+        </div>
+        <div
+            class="nav-link-custom"
+            onclick="logout()"
+        >
+            <i class="bi bi-box-arrow-right"></i>
+            Logout
+        </div>
+    </aside>
+    <main class="main">
+        <header class="topbar">
+            <div
+                style="
+                display:flex;
+                align-items:center;
+                gap:12px;
+                "
+            >
+                <button
+                    class="mobile-menu"
+                    onclick="toggleSidebar()"
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="global-search">
+                    <i class="bi bi-search"></i>
+                    <input
+                        id="globalSearchInput"
+                        class="form-control"
+                        placeholder="Search skills..."
+                        oninput="globalSearch(this.value)"
+                    >
+                </div>
+            </div>
+            <div
+                class="top-user"
+                onclick="showPage('profile')"
+            >
+                <img
+                    id="topAvatar"
+                    alt="User"
+                >
+                <div>
+                    <div
+                        id="topUserName"
+                        class="top-user-name"
+                    ></div>
+                    <div class="top-user-role">
+                        Student
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section
+            id="dashboard"
+            class="page active"
+        >
+            <div class="hero">
+                <h1>
+                    Welcome back,
+                    <span id="heroName"></span>
+                    👋
+                </h1>
+                <p>
+                    Discover students, exchange skills,
+                    and build meaningful connections across your campus.
+                </p>
+                <div class="hero-buttons">
+                    <button
+                        class="primary-button"
+                        style="
+                        background:white;
+                        color:#6253df;
+                        "
+                        onclick="showPage('explore')"
+                    >
+                        Explore Skills
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                    <button
+                        class="btn btn-outline-light"
+                        onclick="findRandomMatch()"
+                    >
+                        <i class="bi bi-shuffle"></i>
+                        Random Match
+                    </button>
+                    <button
+                        class="btn btn-outline-light"
+                        onclick="generateRandomDemoData()"
+                    >
+                        <i class="bi bi-database-add"></i>
+                        Generate Demo Data
+                    </button>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div>
+                        <div
+                            id="statUsers"
+                            class="stat-number"
+                        >
+                            0
+                        </div>
+                        <div class="stat-label">
+                            Students
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <div>
+                        <div
+                            id="statSkills"
+                            class="stat-number"
+                        >
+                            0
+                        </div>
+                        <div class="stat-label">
+                            Skills Shared
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <div>
+                        <div
+                            id="statMatches"
+                            class="stat-number"
+                        >
+                            0
+                        </div>
+                        <div class="stat-label">
+                            My Matches
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <div>
+                        <div
+                            id="statFavorites"
+                            class="stat-number"
+                        >
+                            0
+                        </div>
+                        <div class="stat-label">
+                            Favorites
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-header">
+                <h5>
+                    Discover Skills
+                </h5>
+                <button
+                    class="btn btn-sm btn-light"
+                    onclick="showPage('explore')"
+                >
+                    View all
+                </button>
+            </div>
+            <div
+                id="dashboardSkills"
+                class="skill-grid"
+            ></div>
+        </section>
+        <section
+            id="explore"
+            class="page"
+        >
+            <h2 class="page-title">
+                Explore Skills
+            </h2>
+            <p class="page-subtitle">
+                Find students who can teach you something new.
+            </p>
+            <div class="filters">
+                <input
+                    id="skillSearch"
+                    class="form-control"
+                    placeholder="Search Java, Photoshop, Python..."
+                    oninput="renderSkills()"
+                >
+                <select
+                    id="categoryFilter"
+                    class="form-select"
+                    onchange="renderSkills()"
+                >
+                    <option value="">
+                        All categories
+                    </option>
+                    <option>
+                        Programming
+                    </option>
+                    <option>
+                        Design
+                    </option>
+                    <option>
+                        Business
+                    </option>
+                    <option>
+                        Languages
+                    </option>
+                    <option>
+                        Academic
+                    </option>
+                    <option>
+                        Creative
+                    </option>
+                </select>
+                <select
+                    id="sortSkills"
+                    class="form-select"
+                    onchange="renderSkills()"
+                >
+                    <option value="newest">
+                        Newest
+                    </option>
+                    <option value="name">
+                        Name
+                    </option>
+                </select>
+            </div>
+            <div
+                id="skillsGrid"
+                class="skill-grid"
+            ></div>
+        </section>
+        <section
+            id="matches"
+            class="page"
+        >
+            <h2 class="page-title">
+                My Matches
+            </h2>
+            <p class="page-subtitle">
+                Students whose skills complement yours.
+            </p>
+            <div style="margin-top:18px; margin-bottom:4px;">
+                <button
+                    class="primary-button"
+                    onclick="findRandomMatch()"
+                >
+                    <i class="bi bi-shuffle"></i>
+                    Find Random Match
+                </button>
+            </div>
+            <div
+                class="card-box"
+                style="margin-top:20px"
+            >
+                <div id="matchesList"></div>
+            </div>
+        </section>
+        <section
+            id="sessions"
+            class="page"
+        >
+            <h2 class="page-title">
+                Sessions
+            </h2>
+            <p class="page-subtitle">
+                Your upcoming skill exchange sessions.
+            </p>
+            <div
+                class="card-box"
+                style="margin-top:20px"
+            >
+                <div id="sessionsList"></div>
+            </div>
+        </section>
+        <section
+            id="messages"
+            class="page"
+        >
+            <h2 class="page-title">
+                Messages
+            </h2>
+            <p class="page-subtitle">
+                Keep your skill exchange conversations organized.
+            </p>
+            <div
+                class="card-box"
+                style="margin-top:20px"
+            >
+                <div class="empty-state">
+                    <i class="bi bi-chat-square-text"></i>
+                    <b>
+                        No conversations yet
+                    </b>
+                    <div>
+                        Open a provider profile and request a match.
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section
+            id="leaderboard"
+            class="page"
+        >
+            <h2 class="page-title">
+                Leaderboard
+            </h2>
+            <p class="page-subtitle">
+                Top skill contributors in your community.
+            </p>
+            <div
+                id="leaderboardList"
+                class="card-box"
+                style="margin-top:20px"
+            ></div>
+        </section>
+        <section
+            id="achievements"
+            class="page"
+        >
+            <h2 class="page-title">
+                Achievements
+            </h2>
+            <p class="page-subtitle">
+                Milestones earned through learning and sharing.
+            </p>
+            <div
+                class="skill-grid"
+                style="margin-top:20px"
+            >
+                <div class="card-box">
+                    <i
+                        class="bi bi-lightbulb"
+                        style="
+                        font-size:32px;
+                        color:#6c5ce7;
+                        "
+                    ></i>
+                    <h6
+                        style="
+                        font-weight:800;
+                        margin-top:15px;
+                        "
+                    >
+                        First Skill
+                    </h6>
+                    <p
+                        style="
+                        font-size:12px;
+                        color:#888;
+                        "
+                    >
+                        Add your first skill.
+                    </p>
+                </div>
+                <div class="card-box">
+                    <i
+                        class="bi bi-people"
+                        style="
+                        font-size:32px;
+                        color:#6c5ce7;
+                        "
+                    ></i>
+                    <h6
+                        style="
+                        font-weight:800;
+                        margin-top:15px;
+                        "
+                    >
+                        Connector
+                    </h6>
+                    <p
+                        style="
+                        font-size:12px;
+                        color:#888;
+                        "
+                    >
+                        Connect with another student.
+                    </p>
+                </div>
+                <div class="card-box">
+                    <i
+                        class="bi bi-star"
+                        style="
+                        font-size:32px;
+                        color:#6c5ce7;
+                        "
+                    ></i>
+                    <h6
+                        style="
+                        font-weight:800;
+                        margin-top:15px;
+                        "
+                    >
+                        Skill Sharer
+                    </h6>
+                    <p
+                        style="
+                        font-size:12px;
+                        color:#888;
+                        "
+                    >
+                        Share multiple skills with campus.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section
+            id="favorites"
+            class="page"
+        >
+            <h2 class="page-title">
+                Favorites
+            </h2>
+            <p class="page-subtitle">
+                Skills you saved.
+            </p>
+            <div
+                id="favoritesGrid"
+                class="skill-grid"
+                style="margin-top:20px"
+            ></div>
+        </section>
+        <section
+            id="profile"
+            class="page"
+        >
+            <div class="profile-card">
+                <div class="profile-cover"></div>
+                <div class="profile-content">
+                    <div
+                        style="
+                        display:flex;
+                        justify-content:space-between;
+                        align-items:flex-start;
+                        "
+                    >
+                        <div>
+                            <img
+                                id="profileAvatar"
+                                class="profile-main-avatar"
+                                alt="Profile"
+                            >
+                            <h2 id="profileName"></h2>
+                            <div
+                                id="profileEmail"
+                                class="profile-email"
+                            ></div>
+                        </div>
+                        <button
+                            class="btn btn-outline-secondary btn-sm"
+                            style="margin-top:15px"
+                            onclick="openEditProfile()"
+                        >
+                            Edit Profile
+                        </button>
+                    </div>
+                    <p
+                        id="profileBio"
+                        class="profile-bio"
+                    ></p>
+                    <span
+                        id="profileUniversity"
+                        class="soft-badge"
+                    ></span>
+                </div>
+            </div>
+            <div class="section-header">
+                <h5>
+                    My Skills
+                </h5>
+                <button
+                    class="primary-button"
+                    onclick="openAddSkill()"
+                >
+                    + Add Skill
+                </button>
+            </div>
+            <div
+                id="mySkillsGrid"
+                class="skill-grid"
+            ></div>
+        </section>
+        <section
+            id="settings"
+            class="page"
+        >
+            <h2 class="page-title">
+                Settings
+            </h2>
+            <p class="page-subtitle">
+                Manage your account.
+            </p>
+            <div
+                class="card-box"
+                style="margin-top:20px"
+            >
+                <div
+                    style="
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    padding:15px 0;
+                    border-bottom:1px solid #eee;
+                    "
+                >
+                    <div>
+                        <b style="font-size:13px">
+                            Account
+                        </b>
+                        <div
+                            style="
+                            font-size:11px;
+                            color:#999;
+                            "
+                        >
+                            You are logged in with your personal account.
+                        </div>
+                    </div>
+                </div>
+                <div style="padding-top:18px">
+                    <button
+                        class="btn btn-outline-danger btn-sm"
+                        onclick="logout()"
+                    >
+                        <i class="bi bi-box-arrow-right"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+<div
+    id="randomMatchModal"
+    class="modal-custom"
+    onclick="
+        if(event.target===this)
+        closeModal('randomMatchModal')
+    "
+>
+    <div class="modal-content-custom">
+        <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            "
+        >
+            <h5 style="font-weight:800; margin:0">
+                <i class="bi bi-stars" style="color:#6c5ce7"></i>
+                Your Random Match
+            </h5>
+            <button
+                class="btn-close"
+                onclick="closeModal('randomMatchModal')"
+            ></button>
+        </div>
+        <div id="randomMatchContent" style="margin-top:18px"></div>
+    </div>
+</div>
+<div
+    id="providerModal"
+    class="modal-custom"
+    onclick="
+        if(event.target===this)
+        closeModal('providerModal')
+    "
+>
+    <div class="modal-content-custom">
+        <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            "
+        >
+            <h5 style="font-weight:800">
+                Student Profile
+            </h5>
+            <button
+                class="btn-close"
+                onclick="closeModal('providerModal')"
+            ></button>
+        </div>
+        <div id="providerContent"></div>
+    </div>
+</div>
+<div
+    id="skillModal"
+    class="modal-custom"
+    onclick="
+        if(event.target===this)
+        closeModal('skillModal')
+    "
+>
+    <div class="modal-content-custom">
+        <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            "
+        >
+            <h5 style="font-weight:800">
+                Add Skill
+            </h5>
+            <button
+                class="btn-close"
+                onclick="closeModal('skillModal')"
+            ></button>
+        </div>
+        <form
+            id="skillForm"
+            style="margin-top:20px"
+        >
+            <div class="mb-3">
+                <label class="form-label">
+                    Skill Name
+                </label>
+                <input
+                    id="newSkillName"
+                    class="form-control"
+                    placeholder="Example: Java"
+                    required
+                >
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    Category
+                </label>
+                <select
+                    id="newSkillCategory"
+                    class="form-select"
+                >
+                    <option>
+                        Programming
+                    </option>
+                    <option>
+                        Design
+                    </option>
+                    <option>
+                        Business
+                    </option>
+                    <option>
+                        Languages
+                    </option>
+                    <option>
+                        Academic
+                    </option>
+                    <option>
+                        Creative
+                    </option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    Description
+                </label>
+                <textarea
+                    id="newSkillDescription"
+                    class="form-control"
+                    rows="3"
+                    placeholder="What can you teach?"
+                ></textarea>
+            </div>
+            <button class="auth-button">
+                Add Skill
+                <i class="bi bi-plus-circle"></i>
+            </button>
+        </form>
+    </div>
+</div>
+<div
+    id="profileModal"
+    class="modal-custom"
+    onclick="
+        if(event.target===this)
+        closeModal('profileModal')
+    "
+>
+    <div class="modal-content-custom">
+        <div
+            style="
+            display:flex;
+            justify-content:space-between;
+            "
+        >
+            <h5 style="font-weight:800">
+                Edit Profile
+            </h5>
+            <button
+                class="btn-close"
+                onclick="closeModal('profileModal')"
+            ></button>
+        </div>
+        <form
+            id="profileForm"
+            style="margin-top:20px"
+        >
+            <div class="image-upload">
+                <img
+                    id="editAvatarPreview"
+                    class="image-preview"
+                >
+                <label class="upload-label">
+                    <i class="bi bi-camera"></i>
+                    Change Picture
+                    <input
+                        id="editAvatar"
+                        type="file"
+                        accept="image/*"
+                        hidden
+                    >
+                </label>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    Name
+                </label>
+                <input
+                    id="editName"
+                    class="form-control"
+                    required
+                >
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    University
+                </label>
+                <input
+                    id="editUniversity"
+                    class="form-control"
+                >
+            </div>
+            <div class="mb-3">
+                <label class="form-label">
+                    Bio
+                </label>
+                <textarea
+                    id="editBio"
+                    class="form-control"
+                    rows="3"
+                ></textarea>
+            </div>
+            <button class="auth-button">
+                Save Changes
+            </button>
+        </form>
+    </div>
+</div>
+<div
+    id="toast"
+    class="toast-custom"
+></div>
+<script src="js/app.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/matches.js"></script>
+<script src="js/profile.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
